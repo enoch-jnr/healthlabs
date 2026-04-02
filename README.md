@@ -370,6 +370,12 @@ As required by the hackathon, below is documentation of how ASI-1 shaped this id
 - [x] ASI-1 interaction documentation included
 - [ ] GitHub repository structure (see repository)
 - [ ] Optional mockups — see attached presentation
+## References & Resources
+- World Health Organization (WHO) – Medical education and training in Africa: [https://www.who.int](https://www.who.int)
+- Ghana Ministry of Health – Nursing and Midwifery Training Institutions Report
+- ASI‑1 Documentation – [https://asi1.ai/docs](https://asi1.ai/docs)
+- Research article: Simulation-based medical education in Sub-Saharan Africa (BMC Medical Education, 2022)
+- EdTech in Africa – African Union Digital Education Strategy
 
 ---
 
