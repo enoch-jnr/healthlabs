@@ -7,7 +7,7 @@
 ## 1. Project Overview
 
 **Project Name:** HealthLabs  
-**Team:** Enoch [Last Name] & [Friend's Name]  
+**Team:** Enoch Arhinful-Jnr & Stanley Buernor Kpalam
 **Country:** Ghana, West Africa  
 **Hackathon Theme:** Education · Social Good  
 **ASI-1 Model Used:** ASI-1 Mini & ASI-1 Extended  
@@ -334,10 +334,10 @@ Begin with direct partnerships with 3–5 healthcare training institutions in Ac
 
 | Member | Role | Skills |
 |---|---|---|
-| Enoch [Last Name] | Backend Engineer & Product Lead | FastAPI, PostgreSQL, System Architecture, Product Vision |
-| [Friend's Name] | Frontend Engineer | React.js, UI/UX, Interactive Design |
+| Enoch Arhinful-Jnr | Backend Engineer & Product Lead | FastAPI, PostgreSQL, System Architecture, Product Vision |
+| Stanley Kpalam Buernor | Frontend Engineer | React.js, UI/UX, Interactive Design |
 
-We are Level 200 Computer Science and Engineering students at [University Name], Ghana. We are building HealthLabs as part of our broader vision for DataLabs — a data infrastructure platform for Africa. HealthLabs is our first product and our first proof that African students can build technology solutions for African problems, not just consume them.
+We are Level 200 Computer Science and Engineering students at University of Mines and Technology, Ghana. We are building HealthLabs as part of our broader vision for DataLabs — a data infrastructure platform for Africa. HealthLabs is our first product and our first proof that African students can build technology solutions for African problems, not just consume them.
 
 ---
 
