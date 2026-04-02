@@ -353,6 +353,9 @@ As required by the hackathon, below is documentation of how ASI-1 shaped this id
 
 **Documentation:** Used ASI-1 to refine technical descriptions and ensure ASI-1 integration points were specific, credible, and properly tied to platform features.
 
+## GitHub Repository
+[HealthLabs Repository](https://github.com/enoch-jnr/healthlabs)
+
 ---
 
 ## Submission Checklist
