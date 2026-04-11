@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HealthLabs — Intelligent Medical Annotation Platform</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- jsPDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+<!-- ==================== HOMEPAGE ==================== -->
+<div id="page-home" class="page active">
+
+  <nav class="home-nav">
+    <a href="index.html" class="nav-logo" style="text-decoration:none">Health<span>Labs</span></a>
+    <div class="nav-links">
+      <a href="#features-section" class="nav-link">Features</a>
+      <a href="#how-section" class="nav-link">How It Works</a>
+      <button class="btn btn-ghost" onclick="window.location.href='login.html'" id="nav-login-btn">Login</button>
+      <button class="btn btn-primary" onclick="window.location.href='signup.html'" id="nav-signup-btn">Get Started</button>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-badge">Medical AI · Annotation · Collaboration</div>
+    <h1 class="hero-title">The Lab Where<br><em>Diagnoses Begin</em></h1>
+    <p class="hero-sub">Upload medical images, annotate with precision tools, collaborate with your team — all in one secure digital environment.</p>
+    <div class="hero-actions">
+      <button class="btn btn-primary btn-lg" onclick="window.location.href='signup.html'">Get Started Free</button>
+      <button class="btn btn-outline btn-lg" onclick="window.location.href='login.html'">Sign In</button>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-canvas-mock">
+        <div class="mock-toolbar">
+          <span class="mock-tool active">▢ Box</span>
+          <span class="mock-tool">⬡ Polygon</span>
+          <span class="mock-tool">⊕ Marker</span>
+          <span class="mock-tool">◈ Highlight</span>
+        </div>
+        <div class="mock-image-area">
+          <div class="mock-annotation box-ann" style="top:22%;left:18%;width:38%;height:28%;">
+            <span class="ann-label">Tumor Region</span>
+          </div>
+          <div class="mock-annotation box-ann highlight" style="top:55%;left:55%;width:25%;height:20%;">
+            <span class="ann-label">Lymph Node</span>
+          </div>
+          <div class="mock-dot" style="top:40%;left:60%;"></div>
+          <div class="mock-dot" style="top:32%;left:70%;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features" id="features-section">
+    <div class="section-label">CORE FEATURES</div>
+    <h2>Everything your lab needs</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">⬡</div>
+        <h3>Precision Annotation</h3>
+        <p>Bounding boxes, polygons, free markers — all on a live canvas with label management.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🗂</div>
+        <h3>Dataset Library</h3>
+        <p>Upload, preview, and manage your medical image collections in one organized space.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🤝</div>
+        <h3>Team Workspaces</h3>
+        <p>Collaborate with radiologists, researchers, and clinicians in shared project spaces.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📤</div>
+        <h3>Export Anywhere</h3>
+        <p>Export annotated images as PNG or PDF with all labels embedded for reporting.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🧠</div>
+        <h3>AI Suggestions</h3>
+        <p>Get instant AI-powered region suggestions to speed up your annotation workflow.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📜</div>
+        <h3>Activity Logs</h3>
+        <p>Track every upload, annotation, and collaboration event with full audit trails.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-it-works" id="how-section">
+    <div class="section-label">WORKFLOW</div>
+    <h2>From image to insight</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Upload</h3>
+        <p>Add your medical images to the Dataset Library</p>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>Annotate</h3>
+        <p>Use the labeling tool to mark regions of interest</p>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Collaborate</h3>
+        <p>Share workspaces and review annotations with your team</p>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <h3>Export</h3>
+        <p>Download annotated images or PDFs for reporting</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2>Ready to transform your lab workflow?</h2>
+    <p>Join hundreds of medical teams using HealthLabs today.</p>
+    <button class="btn btn-primary btn-lg" onclick="window.location.href='signup.html'">Start for Free →</button>
+  </section>
+
+  <footer class="home-footer">
+    <div class="footer-logo">Health<span>Labs</span></div>
+    <p>© 2025 HealthLabs. Demo Prototype.</p>
+  </footer>
+</div>
+
+<!-- Toast -->
+<div id="toast" class="toast hidden"></div>
+
+<script src="app.js"></script>
+</body>
+</html>

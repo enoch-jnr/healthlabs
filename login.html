@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HealthLabs — Intelligent Medical Annotation Platform</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- jsPDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+<!-- ==================== LOGIN ==================== -->
+<div id="page-login" class="page auth-page active">
+  <div class="auth-left">
+    <a href="index.html" class="auth-brand" style="text-decoration:none">Health<span>Labs</span></a>
+    <div class="auth-visual">
+      <div class="auth-quote">"Precision annotation saves lives."</div>
+    </div>
+  </div>
+  <div class="auth-right">
+    <div class="auth-box">
+      <h2>Welcome back</h2>
+      <p class="auth-sub">Sign in to your HealthLabs account</p>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="login-email" placeholder="you@hospital.com" />
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="login-password" placeholder="••••••••" />
+      </div>
+      <div id="login-error" class="form-error hidden"></div>
+      <button class="btn btn-primary btn-full" onclick="handleLogin()">Sign In</button>
+      <p class="auth-switch">No account? <a href="signup.html">Sign up</a></p>
+      <div class="demo-hint">
+        <strong>Demo:</strong> Use any email + password (min 6 chars)<br>
+        Or try: <code>demo@healthlabs.io</code> / <code>demo123</code>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div id="toast" class="toast hidden"></div>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HealthLabs — Intelligent Medical Annotation Platform</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- jsPDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+<!-- ==================== DASHBOARD ==================== -->
+<div id="page-dashboard" class="page active">
+  <div class="dashboard-layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <a href="index.html" style="text-decoration:none" class="sidebar-logo">Health<span>Labs</span></a>
+      <nav class="sidebar-nav">
+        <a class="nav-item active" data-section="datasets" onclick="switchSection('datasets', this)">
+          <span class="nav-icon">🗂</span> Dataset Library
+        </a>
+        <a class="nav-item" data-section="workspaces" onclick="switchSection('workspaces', this)">
+          <span class="nav-icon">🤝</span> Workspaces
+        </a>
+        <a class="nav-item" data-section="labeling" onclick="switchSection('labeling', this)">
+          <span class="nav-icon">⬡</span> Labeling Tool
+        </a>
+        <a class="nav-item" data-section="logs" onclick="switchSection('logs', this)">
+          <span class="nav-icon">📜</span> Activity Logs
+        </a>
+      </nav>
+      <div class="sidebar-user">
+        <div class="user-avatar" id="user-avatar">?</div>
+        <div class="user-info">
+          <div class="user-name" id="sidebar-username">User</div>
+          <div class="user-role">Researcher</div>
+        </div>
+        <button class="logout-btn" onclick="handleLogout()" title="Logout">⏻</button>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main-content">
+
+      <!-- Dataset Library -->
+      <section id="section-datasets" class="section active">
+        <div class="section-header">
+          <div>
+            <h1>Dataset Library</h1>
+            <p class="section-desc">Manage and preview your medical image datasets</p>
+          </div>
+          <label class="btn btn-primary" for="upload-input">
+            ＋ Upload Image
+          </label>
+          <input type="file" id="upload-input" accept="image/*" style="display:none" onchange="handleUpload(event)" />
+        </div>
+        <div class="dataset-grid" id="dataset-grid"></div>
+      </section>
+
+      <!-- Workspaces -->
+      <section id="section-workspaces" class="section">
+        <div class="section-header">
+          <div>
+            <h1>Workspaces</h1>
+            <p class="section-desc">Collaborate with your team in shared project spaces</p>
+          </div>
+          <button class="btn btn-primary" onclick="openCreateWorkspace()">＋ New Workspace</button>
+        </div>
+        <div class="workspaces-grid" id="workspaces-grid"></div>
+      </section>
+
+      <!-- Labeling Tool -->
+      <section id="section-labeling" class="section">
+        <div class="section-header">
+          <div>
+            <h1>Labeling Tool</h1>
+            <p class="section-desc">Annotate images with precision drawing tools</p>
+          </div>
+          <div class="labeling-actions">
+            <button class="btn btn-outline" onclick="exportPNG()">⬇ PNG</button>
+            <button class="btn btn-outline" onclick="exportPDF()">⬇ PDF</button>
+            <button class="btn btn-ai" onclick="aiSuggest()">🧠 AI Suggest</button>
+          </div>
+        </div>
+        <div class="labeling-layout">
+          <!-- Tools -->
+          <div class="tool-panel">
+            <div class="tool-group">
+              <div class="tool-label">DRAW</div>
+              <button class="tool-btn active" id="tool-box" onclick="setTool('box')">▢ Box</button>
+              <button class="tool-btn" id="tool-polygon" onclick="setTool('polygon')">⬡ Polygon</button>
+              <button class="tool-btn" id="tool-marker" onclick="setTool('marker')">⊕ Marker</button>
+              <button class="tool-btn" id="tool-highlight" onclick="setTool('highlight')">◈ Highlight</button>
+            </div>
+            <div class="tool-group">
+              <div class="tool-label">ACTIONS</div>
+              <button class="tool-btn" onclick="clearAnnotations()">🗑 Clear All</button>
+              <button class="tool-btn" onclick="undoAnnotation()">↩ Undo</button>
+            </div>
+            <div class="tool-group">
+              <div class="tool-label">LOAD IMAGE</div>
+              <div id="image-selector-list"></div>
+            </div>
+            <div class="tool-group">
+              <div class="tool-label">LABEL</div>
+              <input type="text" id="label-input" class="label-input" placeholder="Label name..." value="Region" />
+              <div class="color-row">
+                <input type="color" id="color-input" value="#00d4aa" />
+                <span>Annotation color</span>
+              </div>
+            </div>
+          </div>
+          <!-- Canvas -->
+          <div class="canvas-wrapper">
+            <canvas id="annotation-canvas"></canvas>
+            <div class="canvas-hint" id="canvas-hint">Select an image from the library to begin annotating</div>
+          </div>
+          <!-- Annotation List -->
+          <div class="annotations-panel">
+            <div class="panel-header">Annotations <span id="ann-count">0</span></div>
+            <div id="annotations-list"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Activity Logs -->
+      <section id="section-logs" class="section">
+        <div class="section-header">
+          <div>
+            <h1>Activity Logs</h1>
+            <p class="section-desc">Full audit trail of all platform activity</p>
+          </div>
+          <button class="btn btn-outline" onclick="clearLogs()">Clear Logs</button>
+        </div>
+        <div class="logs-container" id="logs-container"></div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<!-- ==================== MODALS ==================== -->
+<div id="modal-overlay" class="modal-overlay hidden" onclick="closeModal()">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <h3 id="modal-title">Modal</h3>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div id="toast" class="toast hidden"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
