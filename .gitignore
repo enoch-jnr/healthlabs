@@ -1,1 +1,16 @@
 .vercel
+# Ignore node_modules
+node_modules/
+
+# Ignore build or dist folders
+dist/
+build/
+
+# Ignore system files
+*.log
+*.tmp
+
+# Ignore large media files
+*.mp4
+*.zip
+*.psd
